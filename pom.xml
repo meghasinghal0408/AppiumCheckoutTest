@@ -3,13 +3,64 @@
   <groupId>com.amazon.test</groupId>
   <artifactId>AppiumCheckoutTest</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+   <properties>
+    <maven.compiler.source>7</maven.compiler.source>
+    <maven.compiler.target>7</maven.compiler.target>
+  </properties>
+  
+  <profiles>
+  <profile>
+  <id> Regression </id>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M4</version>
+          
+          <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng2.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+          
+          
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  </profile>
+  
+  <profile>
+  <id> Smoke </id>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M4</version>
+          
+          <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+          
+          
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  </profile>
+  </profiles>
+  
+  
   <dependencies>
   
-  	<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.0.0-alpha-3</version>
-    </dependency>
+  
     
     
     <dependency>
